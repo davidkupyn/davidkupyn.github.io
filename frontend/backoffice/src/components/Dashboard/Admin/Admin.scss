@@ -1,0 +1,57 @@
+@import '../../../colors';
+@import '../../../mixins';
+
+.login_main {
+  height: 100%;
+  .login_center {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    .login_paper {
+      padding: 10px;
+      padding-block: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .title {
+        font-weight: bold;
+        font-size: 24px;
+      }
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        width: 75%;
+        gap: 15px;
+      }
+      .forgot_pass {
+        width: 75%;
+        display: flex;
+        align-items: flex-start;
+        margin-top: 10px;
+        cursor: pointer;
+        color: $main_blue;
+      }
+      .button {
+        width: 75%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+        @include mobile {
+          justify-content: center;
+        }
+      }
+      .bottom_text {
+        margin-top: 25px;
+        .bottom_button {
+          color: $main_blue;
+          transition: 0.3s ease;
+          cursor: pointer;
+          &:hover {
+            color: $light_blue;
+          }
+        }
+      }
+    }
+  }
+}

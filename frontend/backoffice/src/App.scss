@@ -1,0 +1,99 @@
+// @import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import './index.css';
+
+*,
+body {
+  font-family: 'Roboto', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  padding-top: 10px;
+  background: var(--background-back-color);
+}
+
+.App {
+  .limit-content {
+    .center-content {
+      height: 100vh;
+      display: grid;
+      vertical-align: center;
+    }
+    width: 93%;
+    margin: auto;
+    // height: 100vh;
+    min-height: 100vh;
+  }
+}
+
+.MuiLoadingButton-root,
+.MuiButton-root {
+  border-radius: 12px !important;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  .App {
+    &.dark {
+      --background-back-color: #121212;
+      --background-primary: #1e1e1e;
+      --added-users: #424242;
+      --hover-item-color: #2b2b2b;
+      --border-color-01: rgba(240, 240, 240, 0.3);
+      --border-color-02: rgba(240, 240, 240, 0.8);
+      --text-primary: #f0f0f0;
+      --switcher-color: #f0f0f0;
+    }
+    &:not(.dark) {
+      --background-back-color: #f1f1f1;
+      --background-primary: #fff;
+      --added-users: #c0c0c0;
+      --hover-item-color: #f7f7f7;
+      --border-color-01: rgba(32, 32, 32, 0.3);
+      --border-color-02: rgba(32, 32, 32, 0.8);
+      --text-primary: #181818;
+      --switcher-color: #3813c2;
+    }
+  }
+}
+
+$scrollbar: var(--background-primary);
+$thumb: var(--background-back-color);
+body::-webkit-scrollbar {
+  background-color: $scrollbar;
+  width: 8px;
+  transition: 0.3s;
+  &:hover {
+    width: 15px;
+  }
+}
+
+/* background of the scrollbar except button or resizer */
+body::-webkit-scrollbar-track {
+  background-color: $scrollbar;
+}
+
+/* scrollbar itself */
+body::-webkit-scrollbar-thumb {
+  background-color: $thumb;
+  border-radius: 16px;
+  width: 8px;
+  transition: 0.3s;
+  &:hover {
+    border: 1px solid #c0c0c0;
+  }
+}
+
+/* set button(top and bottom of the scrollbar) */
+body::-webkit-scrollbar-button {
+  display: none;
+}

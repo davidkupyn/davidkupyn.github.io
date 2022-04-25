@@ -1,0 +1,22 @@
+@import './_breakpoints.scss';
+@mixin smallMobile {
+  @media (max-width: #{$smallMobile}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin smallScreen {
+  @media (max-width: #{$smallScreen}) {
+    @content;
+  }
+}

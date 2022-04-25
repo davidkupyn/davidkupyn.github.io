@@ -1,0 +1,44 @@
+@import '../../_mixins.scss';
+
+.dashboard {
+  margin-top: 30px;
+  &_container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    height: 100%;
+
+    &_box-wrap {
+      height: 150px;
+      width: 150px;
+      @include mobile {
+        width: 100%;
+        height: 100px;
+      }
+      &_box {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 500;
+        transition: 0.2s;
+        background: var(--background-primary);
+        color: var(--text-primary);
+        &:hover {
+          width: 150px;
+          height: 150px;
+        }
+        @include mobile {
+          width: 100%;
+          height: 100px;
+        }
+      }
+    }
+  }
+}

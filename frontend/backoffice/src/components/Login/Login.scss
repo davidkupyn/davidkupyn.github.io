@@ -1,0 +1,75 @@
+@import '../../colors';
+@import '../../_mixins.scss';
+
+.login_main {
+  height: 100%;
+  .login_center {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    .login_paper {
+      background-color: var(--background-primary);
+      border-radius: 20px;
+      padding: 10px;
+      padding-block: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &_logo {
+        width: 200px;
+        margin-bottom: 15px;
+        @include mobile {
+          width: 150px;
+        }
+      }
+      .login_error {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        margin-top: 2px;
+        color: rgb(216, 59, 59);
+      }
+      .title {
+        font-weight: bold;
+        font-size: 24px;
+        color: var(--text-primary);
+      }
+      .inputs {
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        width: 75%;
+        gap: 15px;
+      }
+      .forgot_pass {
+        width: 75%;
+        display: flex;
+        align-items: flex-start;
+        margin-top: 10px;
+        cursor: pointer;
+        color: $main_blue;
+      }
+      .button {
+        width: 75%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+        @include mobile {
+          justify-content: center;
+        }
+      }
+      .bottom_text {
+        margin-top: 25px;
+        .bottom_button {
+          color: $main_blue;
+          transition: 0.3s ease;
+          cursor: pointer;
+          &:hover {
+            color: $light_blue;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .dark-login {
+    background: #1e1e1e !important;
+  }
+  .dark-login .title {
+    color: #f0f0f0 !important;
+  }
+  .dark-bg-color {
+    background: #1e1e1e !important;
+    color: #f0f0f0 !important;
+  }
+  .dark-hover-item {
+    background: #1e1e1e !important;
+    color: #f0f0f0 !important;
+  }
+  .dark-hover-item:hover {
+    background: #2b2b2b !important;
+  }
+  .dark-border {
+    border-color: #f0f0f0 !important;
+  }
+  .dark-added-users {
+    background: #424242 !important;
+    color: #f0f0f0 !important;
+  }
+}

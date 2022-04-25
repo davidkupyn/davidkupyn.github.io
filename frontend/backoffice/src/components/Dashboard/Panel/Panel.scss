@@ -1,0 +1,167 @@
+@import '../../../colors';
+@import '../../../_mixins.scss';
+// TODO MAX WIDTH 320PX Z DLUGIM MAILEM LUB IMIENIEM SIE PSUJE RWD!!!
+.panel {
+  width: 100%;
+  padding-bottom: 25px;
+  color: var(--text-primary);
+  &_container {
+    margin: 0 auto;
+    background-color: var(--background-primary);
+    border-radius: 20px;
+
+    padding: 25px;
+    // padding: 25px 25px 0 25px;
+    &_searchbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+  }
+  &_users {
+    position: relative;
+    padding: 5px;
+    &_container {
+      height: 50px;
+      transition: 0.2s ease;
+      &_user {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 5px;
+        margin-block: 10px;
+        padding: 5px;
+        height: 50px;
+        background: var(--background-primary);
+        border-radius: 12px;
+        transition: 0.15s ease;
+        &_items {
+          display: flex;
+          gap: 30px;
+          .onhover_info {
+            display: none;
+            gap: 20px;
+            cursor: default;
+            color: rgb(144, 144, 144);
+            transition: 0.15s ease;
+            @include tablet {
+              gap: 3px;
+              flex-direction: column;
+            }
+            @include mobile {
+              font-size: 12px;
+              gap: 7px;
+            }
+          }
+          @include tablet {
+            gap: 3px;
+            flex-direction: column;
+          }
+          @include mobile {
+            gap: 5px;
+            font-size: 14px;
+          }
+        }
+
+        .icons {
+          display: none;
+          gap: 3px;
+          margin-right: 5px;
+          user-select: none;
+          cursor: pointer;
+          @include mobile {
+            flex-direction: column;
+          }
+        }
+      }
+      &:hover {
+        .panel_users_container_user {
+          background: var(--hover-item-color);
+          height: 55px;
+          transition: 0.2s ease;
+          .icons {
+            display: flex;
+            animation: fadeInFromNone 0.5s ease-out;
+          }
+          .onhover_info {
+            transition-delay: 150ms;
+            display: flex;
+            animation: fadeInFromNone 0.5s ease-out;
+          }
+          @include tablet {
+            height: 100px;
+          }
+          @include mobile {
+            height: 125px;
+          }
+        }
+        @include tablet {
+          height: 100px;
+        }
+        @include mobile {
+          height: 125px;
+        }
+      }
+    }
+    &_loading {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      padding: 10px;
+      gap: 10px;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      user-select: none;
+      transition: 0.3s ease;
+      li {
+        margin-inline: 5px;
+        border-radius: 4px;
+        transition: 0.15s ease;
+        &:not(:first-child):not(:last-child) {
+          padding-inline: 8px;
+          color: rgb(0, 66, 159);
+          border: 1px solid var(--border-color-01);
+          font-weight: 900;
+          &:hover {
+            border: 1px solid var(--border-color-02);
+          }
+        }
+        &:is(.selected) {
+          color: rgb(0, 140, 255) !important;
+          border: 1px solid var(--border-color-01);
+        }
+      }
+    }
+    .previous {
+      position: absolute;
+      left: 20px;
+    }
+    .next {
+      position: absolute;
+      right: 20px;
+    }
+    @include mobile {
+      padding-inline: 0;
+    }
+  }
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: block;
+    opacity: 0;
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}

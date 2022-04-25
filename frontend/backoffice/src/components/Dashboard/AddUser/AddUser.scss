@@ -1,0 +1,45 @@
+@import '../../../colors';
+@import '../../../mixins';
+
+.addUser {
+  margin-top: 35px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  &_container {
+    background: var(--background-primary);
+    border-radius: 20px;
+    padding: 25px 25px;
+  }
+  &_box {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    &_names {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      @include mobile {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+    &_buttons {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .response_error {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: -10px;
+      color: #fc2803;
+      opacity: 0.8;
+    }
+  }
+}

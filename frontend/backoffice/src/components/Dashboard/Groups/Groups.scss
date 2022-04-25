@@ -1,0 +1,417 @@
+$scrollbar: var(--background-primary);
+$thumb: var(--background-back-color);
+@import '../../../mixins';
+
+.groups {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &_container {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--background-primary);
+    border-radius: 20px;
+    padding: 25px 0 25px 0;
+    display: flex;
+    align-items: center;
+    @include tablet {
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 50px;
+    }
+    &_groups {
+      height: 100%;
+      border-right: 1.5px var(--background-back-color) solid;
+      flex: 0.3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      @include tablet {
+        flex: 1;
+        width: 100%;
+        padding: 0 20px;
+      }
+      &_input-container {
+        height: 40px;
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 6px;
+        a {
+          font-size: 18px;
+          user-select: none;
+          cursor: pointer;
+        }
+      }
+      &_list {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        overflow-y: scroll;
+        margin-right: 10px;
+        padding-bottom: 30px;
+
+        &_loader {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 80%;
+        }
+        &::-webkit-scrollbar {
+          background-color: $scrollbar;
+          width: 5px;
+          transition: 0.3s;
+        }
+        /* scrollbar itself */
+        &::-webkit-scrollbar-thumb {
+          background-color: $thumb;
+          border-radius: 16px;
+          width: 3px;
+          transition: 0.3s;
+        }
+
+        /* set button(top and bottom of the scrollbar) */
+        &::-webkit-scrollbar-button {
+          display: none;
+        }
+        @include tablet {
+          max-height: 400px;
+        }
+      }
+    }
+    &_main {
+      height: 100%;
+      flex: 0.7;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      @include tablet {
+        flex: 1;
+        width: 100%;
+        padding: 0 20px;
+      }
+      &_input-container {
+        height: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @include tablet {
+          border-top: 2px var(--background-back-color) solid;
+          padding-top: 15px;
+        }
+        &_input {
+          width: 80%;
+        }
+      }
+      &_lists {
+        display: flex;
+        height: 100%;
+        overflow: hidden;
+        @include tablet {
+          flex-direction: column;
+        }
+        &_list {
+          height: 100%;
+          width: 50%;
+          flex: 0.5;
+          padding: 0 15px 30px 15px;
+          margin-right: 5px;
+          @include tablet {
+            width: 100%;
+            flex: 1;
+            padding: 0 15px 10px 15px;
+          }
+          &_titles {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 150px;
+            margin-inline: auto;
+            transition: 0.2s;
+
+            &_title {
+              color: #3a3a3a;
+              text-align: center;
+              font-weight: 500;
+              cursor: pointer;
+              font-size: 18px;
+              &:last-child {
+                display: grid;
+                place-items: center;
+                transform-origin: center;
+                transform: rotateX(0);
+                transition: 0.2s;
+                &.flipped {
+                  transform: rotateX(180deg);
+                }
+              }
+            }
+
+            @include tablet {
+              justify-content: space-between;
+              &.chosen {
+                justify-content: center;
+              }
+            }
+          }
+          h3 {
+            color: #c2c2c2;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 100px;
+            @include tablet {
+              height: 100%;
+              margin-block: 20px;
+            }
+          }
+          &_users {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            gap: 20px;
+            height: 100%;
+            overflow-y: scroll;
+            padding: 0 10px 30px 10px;
+            transition: 0.2s;
+
+            &::-webkit-scrollbar {
+              background-color: transparent;
+              width: 5px;
+              transition: 0.3s;
+            }
+            /* scrollbar itself */
+            &::-webkit-scrollbar-thumb {
+              background-color: $thumb;
+              border-radius: 16px;
+              width: 3px;
+              transition: 0.3s;
+            }
+
+            /* set button(top and bottom of the scrollbar) */
+            &::-webkit-scrollbar-button {
+              display: none;
+            }
+            @include tablet {
+              max-height: 0;
+              overflow: hidden;
+              &.opened {
+                max-height: 400px;
+                overflow: scroll;
+                opacity: 1;
+                transition: 0.2s;
+              }
+              &.closed {
+                max-height: 2px;
+                overflow: hidden;
+                opacity: 1;
+              }
+            }
+          }
+        }
+
+        &_add {
+          height: 100%;
+          width: 50%;
+          flex: 0.5;
+          padding: 0 15px 30px 15px;
+          margin-right: 5px;
+          border-left: 1.5px var(--background-back-color) solid;
+
+          @include tablet {
+            width: 100%;
+            flex: 1;
+            border-top: 2px var(--background-back-color) solid;
+            border-left: 0;
+            padding: 10px 15px 10px 15px;
+          }
+          &_titles {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 150px;
+            margin-inline: auto;
+            transition: 0.2s;
+
+            &_title {
+              color: #3a3a3a;
+              text-align: center;
+              font-weight: 500;
+              font-size: 18px;
+              cursor: pointer;
+
+              &:last-child {
+                display: grid;
+                place-items: center;
+                transform-origin: center;
+                transform: rotateX(0);
+                transition: 0.2s;
+                &.flipped {
+                  transform: rotateX(180deg);
+                }
+              }
+            }
+
+            @include tablet {
+              justify-content: space-between;
+              &.chosen {
+                justify-content: center;
+              }
+            }
+          }
+
+          &_users {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            gap: 15px;
+            height: 100%;
+            overflow-y: scroll;
+            padding: 0 10px 30px 10px;
+            transition: 0.2s;
+
+            &::-webkit-scrollbar {
+              background-color: transparent;
+              width: 5px;
+              transition: 0.3s;
+            }
+            /* scrollbar itself */
+            &::-webkit-scrollbar-thumb {
+              background-color: $thumb;
+              border-radius: 16px;
+              width: 3px;
+              transition: 0.3s;
+            }
+
+            /* set button(top and bottom of the scrollbar) */
+            &::-webkit-scrollbar-button {
+              display: none;
+            }
+            @include tablet {
+              max-height: 0;
+              overflow: hidden;
+              &.opened {
+                max-height: 400px;
+                overflow: scroll;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.group-item-container {
+  width: 80%;
+}
+.group-item {
+  width: 100% !important;
+  height: 55px;
+  cursor: pointer;
+  &_main {
+    height: 45px;
+    width: 100%;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    transition: 0.2s;
+    &_names {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      height: 95%;
+      margin: 5px 10px 5px 10px;
+      h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .rename-input {
+        width: 90%;
+        height: 50%;
+        &::placeholder {
+          user-select: none;
+        }
+      }
+    }
+    &_buttons {
+      display: flex;
+      opacity: 0;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+      margin-right: 10px;
+      h2 {
+        user-select: none;
+      }
+    }
+    &:hover {
+      height: 50px;
+      background: var(--hover-item-color);
+      .group-item_main_buttons {
+        opacity: 1;
+      }
+    }
+    &.chosen-group {
+      height: 50px;
+      background: var(--hover-item-color);
+      .group-item_main_buttons {
+        opacity: 1;
+      }
+    }
+  }
+}
+.user-item_container {
+  height: 40px;
+  .user-item {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+    div {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h4 {
+        width: 90%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    }
+    &:hover {
+      height: 40px;
+      background: var(--hover-item-color);
+    }
+  }
+  &.opened {
+    height: 130px;
+    .user-item {
+      height: 130px;
+      background: var(--hover-item-color);
+      @apply drop-shadow-md;
+      padding: 15px;
+      div:last-child {
+        font-size: 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+      }
+    }
+  }
+}
